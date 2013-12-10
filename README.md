@@ -1,3 +1,6 @@
-The OpenShift `jbossews` cartridge documentation can be found at:
+ausiasYield
+===========
 
-https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-jbossews/README.md
+[![Build Status](https://travis-ci.org/JGrancha/ausiasYield.png?branch=master)](https://travis-ci.org/JGrancha/ausiasYield)
+
+ausiasYield
