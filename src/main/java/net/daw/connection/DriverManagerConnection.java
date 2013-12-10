@@ -16,7 +16,9 @@ public class DriverManagerConnection implements GenericConnection {
             Class.forName("com.mysql.jdbc.Driver");
             String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
             String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/ausiasyield", "adminffVXPhf", "eqIdLiJkI2iq");
+            String user = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+            String password = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/ausiasyield", user, password);
             return connection;
         } catch (ClassNotFoundException ex) {
             throw new RuntimeException(ex);
