@@ -14,7 +14,7 @@ public class DriverManagerConnection implements GenericConnection {
     public Connection crearConexion() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ausiasyield", "root", "bitnami");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/ausiasyield", "adminffVXPhf", "eqIdLiJkI2iq");
             return connection;
         } catch (ClassNotFoundException ex) {
             throw new RuntimeException(ex);
