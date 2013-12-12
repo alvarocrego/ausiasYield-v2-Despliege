@@ -39,7 +39,8 @@
             } else {
                 out.print("<p>Sin filtrar</p>");
             }
-        %>    
+        %>  
+        <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) alObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -60,7 +61,7 @@
                             <option>id</option>
                             <option>titulo</option>
                             <option>fecha</option>
-                                                    
+
                         </select>  
                     </span>
                     <span>
@@ -81,7 +82,7 @@
                     </span>
                 </fieldset>
         </div>
-                    <div class="text-right">
+        <div class="text-right">
             <legend>Registros por página</legend> 
             <form class="navbar-form pull-right" action="Controller" method="post" id="nrrpForm" >
                 <fieldset>                                               
@@ -149,8 +150,8 @@
             <div class="btn-toolbar">
                 <div class="btn-group">
                     <%
-                        if (oContexto.getSearchingFor().equals("metadocumento")) {                            
-                            out.print("<a class=\"btn btn-mini\" href=\"Controller?" + oContexto.getSerializedParamsExcept(new ArrayList<String>(Arrays.asList("class","method","phase","id_metadocumento","id","returnclass","returnmethod","returnphase","searchingfor"))) + "class=" + oContexto.getClaseRetorno() + "&method=" + oContexto.getMetodoRetorno() + "&phase=" + oContexto.getFaseRetorno() + "&id_metadocumento=" + oMetadocumentoBean.getId() + "&id=" + oContexto.getId() + "\"><i class=\"icon-ok\"></i></a>");
+                        if (oContexto.getSearchingFor().equals("metadocumento")) {
+                            out.print("<a class=\"btn btn-mini\" href=\"Controller?" + oContexto.getSerializedParamsExcept(new ArrayList<String>(Arrays.asList("class", "method", "phase", "id_metadocumento", "id", "returnclass", "returnmethod", "returnphase", "searchingfor"))) + "class=" + oContexto.getClaseRetorno() + "&method=" + oContexto.getMetodoRetorno() + "&phase=" + oContexto.getFaseRetorno() + "&id_metadocumento=" + oMetadocumentoBean.getId() + "&id=" + oContexto.getId() + "\"><i class=\"icon-ok\"></i></a>");
                         } else {
                             out.print("<a class=\"btn btn-mini\" href=\"Controller?class=metadocumento&method=view&id=" + oMetadocumentoBean.getId() + "\"><i class=\"icon-eye-open\"></i></a>");
                             out.print("<a class=\"btn btn-mini\" href=\"Controller?class=metadocumento&method=update&id=" + oMetadocumentoBean.getId() + "\"><i class=\"icon-pencil\"></i></a>");

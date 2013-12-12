@@ -46,7 +46,8 @@
             } else {
                 out.print("<p>Sin filtrar</p>");
             }
-        %>    
+        %>  
+       <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) alObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -58,7 +59,7 @@
     </div>
     <div class="span4">
         <div class="text-right">
-            <legend>Filtro de documentoario</legend> 
+            <legend>Filtro de Comentario</legend> 
             <form class="navbar-form pull-right" action="Controller" method="post" id="ComentForm">
                 <fieldset>                                               
                     <%=oContexto.getSerializedParamsExceptFilterFormFormat()%>       
@@ -89,6 +90,37 @@
                         <input type="submit" name="enviar" value="Filtrar" />
                     </span>
                 </fieldset>
+            </form>
+        </div>
+        <div class="text-right">
+            <legend>Registros por página</legend> 
+            <form class="navbar-form pull-right" action="Controller" method="post" id="nrrpForm" >
+                <fieldset>                                               
+                    <%=oContexto.getSerializedParamsExceptNrppFormFormat()%>       
+                    <span>
+                        <select  id="nrpp" name="nrpp" value="select" style="width: 80px">                        
+                            <option <%if (oContexto.getNrpp() == 5) {
+                                    out.print("selected");
+                                }%>>5</option>
+                            <option <%if (oContexto.getNrpp() == 10) {
+                                    out.print("selected");
+                                }%>>10</option>
+                            <option <%if (oContexto.getNrpp() == 20) {
+                                    out.print("selected");
+                                }%>>20</option>
+                            <option <%if (oContexto.getNrpp() == 50) {
+                                    out.print("selected");
+                                }%>>50</option>
+                            <option <%if (oContexto.getNrpp() == 100) {
+                                    out.print("selected");
+                                }%>>100</option>
+                        </select>  
+                    </span>
+                    <span>
+                        <input type="submit" name="enviar" value="Establecer" />
+                    </span>                    
+                </fieldset>
+            </form>
         </div>
     </div>
 </div>
@@ -102,23 +134,23 @@
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=titulo&ordervalue=asc"><i class="icon-arrow-up"></i></a>
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=titulo&ordervalue=desc"><i class="icon-arrow-down"></i></a>        
         </th>
-        <th>contenido
+        <th> contenido
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=contenido&ordervalue=asc"><i class="icon-arrow-up"></i></a>
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=contenido&ordervalue=desc"><i class="icon-arrow-down"></i></a>        
         </th>
-        <th>fecha
+        <th> fecha
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=fecha&ordervalue=asc"><i class="icon-arrow-up"></i></a>
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=fecha&ordervalue=desc"><i class="icon-arrow-down"></i></a>         
         </th>
-        <th>id de documento
+        <th> documento
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=id_documento&ordervalue=asc"><i class="icon-arrow-up"></i></a>
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=id_documento&ordervalue=desc"><i class="icon-arrow-down"></i></a>                            
         </th>
-    <!--   <th>id de usuario
+        <th> usuario
             <a href="Controller?</%=oContexto.getSerializedParamsExceptOrder()%>&order=id_usuario&ordervalue=asc"><i class="icon-arrow-up"></i></a>
             <a href="Controller?</%=oContexto.getSerializedParamsExceptOrder()%>&order=id_usuario&ordervalue=desc"><i class="icon-arrow-down"></i></a>                            
-        </th>-->
-        
+        </th>
+
         <th>Operaciones</th>
     </tr>
     <%
@@ -129,7 +161,7 @@
         <td><%=oComentBean.getId()%></td>
         <td><%=oComentBean.getTitulo()%></td>
         <td><%=oComentBean.getContenido()%></td>
-         <%
+        <%
             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
         %>
         <td><%=formatoFecha.format(oComentBean.getFecha())%></td>
@@ -147,7 +179,8 @@
         </td>
         <td>
             <div class="btn-toolbar">
-                 <%
+                <div class="btn-group">
+                    <%
                         if (oContexto.getSearchingFor().equals("comentario")) {
                             out.print("<a class=\"btn btn-mini\" href=\"Controller?" + oContexto.getSerializedParamsExcept(new ArrayList<String>(Arrays.asList("class", "method", "phase", "id_comentario", "id", "returnclass", "returnmethod", "returnphase", "searchingfor"))) + "class=" + oContexto.getClaseRetorno() + "&method=" + oContexto.getMetodoRetorno() + "&phase=" + oContexto.getFaseRetorno() + "&id_comentario=" + oComentBean.getId() + "&id=" + oContexto.getId() + "\"><i class=\"icon-ok\"></i></a>");
                         } else {
@@ -155,7 +188,8 @@
                             out.print("<a class=\"btn btn-mini\" href=\"Controller?class=coment&method=update&id=" + oComentBean.getId() + "\"><i class=\"icon-pencil\"></i></a>");
                             out.print("<a class=\"btn btn-mini\" href=\"Controller?class=coment&method=remove&id=" + oComentBean.getId() + "\"><i class=\"icon-trash\"></i></a>");
                         }
-                    %>                 
+                    %> 
+                </div>
             </div>
         </td>
     </tr>

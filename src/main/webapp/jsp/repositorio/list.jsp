@@ -53,8 +53,9 @@
         %>
         <%
             Integer registers = (Integer) alObjetoParametro.get(2);
-            out.print("Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString());
-        %>  
+            out.print("<p>Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString() + "</p>");
+        %>
+        <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) alObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -77,7 +78,7 @@
                             <option>contenido</option>
                             <option>id_usuario</option>
                             <option>id_lenguaje</option>
-                             <option>id_documento</option>
+                            <option>id_documento</option>
                             <option>fecha</option>                            
                         </select> 
                     </span>
@@ -199,7 +200,7 @@
         <td>
             <div class="btn-toolbar">
                 <div class="btn-group">                    
-                   <%
+                    <%
                         if (oContexto.getSearchingFor().equals("repositorio")) {
                             out.print("<a class=\"btn btn-mini\" href=\"Controller?" + oContexto.getSerializedParamsExcept(new ArrayList<String>(Arrays.asList("class", "method", "phase", "id_repositorio", "id", "returnclass", "returnmethod", "returnphase", "searchingfor"))) + "class=" + oContexto.getClaseRetorno() + "&method=" + oContexto.getMetodoRetorno() + "&phase=" + oContexto.getFaseRetorno() + "&id_repositorio=" + oRepositorioBean.getId() + "&id=" + oContexto.getId() + "\"><i class=\"icon-ok\"></i></a>");
                         } else {

@@ -39,7 +39,8 @@
             } else {
                 out.print("<p>Sin filtrar</p>");
             }
-        %>    
+        %>  
+        <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) alObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -147,12 +148,12 @@
                 <a class="btn btn-mini" href="Controller?class=pregunta&method=list&id=<%=oOpcionBEAN.getId()%>&searchingfor=pregunta&returnclass=opcion&returnmethod=update&returnphase=2"><i class="icon-search"></i></a>                                        
             </div>
         </td>
-        <td><%if(oOpcionBEAN.getCorrecta()){
-                   out.print("Sí");
-              }else{
-                   out.print("No");
-              }
-        %></td>
+        <td><%if (oOpcionBEAN.getCorrecta()) {
+                out.print("Sí");
+            } else {
+                out.print("No");
+            }
+            %></td>
         <td>
             <div class="btn-toolbar">
                 <div class="btn-group">

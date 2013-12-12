@@ -13,7 +13,7 @@
 <div class="row-fluid">
     <div class="span8">
         <h1>Listado de tipodocumento</h1>
-        <%    
+        <%
             if (!oIterador.hasNext()) {
                 out.print("<h4>Listado vacío</h4>");
             } else {
@@ -42,8 +42,9 @@
         %>
         <%
             Integer registers = (Integer) alObjetoParametro.get(2);
-            out.print("Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString());
-        %>        
+            out.print("<p>Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString() + "</p>");
+        %>
+        <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) alObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -133,10 +134,10 @@
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=privado&ordervalue=desc"><i class="icon-arrow-down"></i></a>
         </th>
         <th>Operaciones
-       
+
         </th>
-        
-        
+
+
     </tr>
     <%        while (oIterador.hasNext()) {
             TipodocumentoBean oTipodocumentoBEAN = oIterador.next();
@@ -144,9 +145,9 @@
     <tr>
         <td><%=oTipodocumentoBEAN.getId()%></td>
         <td><%=oTipodocumentoBEAN.getDescripcion()%></td>
-        <td><%if(oTipodocumentoBEAN.isPrivado()){%>Privado<%}else{%>Publico<%}%></td>
-       
-          
+        <td><%if (oTipodocumentoBEAN.isPrivado()) {%>Privado<%} else {%>Publico<%}%></td>
+
+
         <td>
             <div class="btn-toolbar">
                 <div class="btn-group"> 

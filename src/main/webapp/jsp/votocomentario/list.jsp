@@ -43,8 +43,9 @@
         %>
         <%
             Integer registers = (Integer) alObjetoParametro.get(2);
-            out.print("Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString());
-        %>        
+            out.print("<p>Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString() + "</p>");
+        %>     
+        <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) alObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -67,7 +68,7 @@
                             <option>id_usuario</option>
                             <option>id_comentario</option>
                             <option>valor</option>
-                            
+
                         </select>  
                     </span>
                     <span>
@@ -131,7 +132,7 @@
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=id_usuario&ordervalue=asc"><i class="icon-arrow-up"></i></a>
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=id_usuario&ordervalue=desc"><i class="icon-arrow-down"></i></a>
         </th>
-         <th>id_comentario
+        <th>id_comentario
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=id_comentario&ordervalue=asc"><i class="icon-arrow-up"></i></a>
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=id_comentario&ordervalue=desc"><i class="icon-arrow-down"></i></a>
         </th> 
@@ -140,34 +141,34 @@
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=valor&ordervalue=desc"><i class="icon-arrow-down"></i></a>
         </th>
         <th>Operaciones</th>
-        
-        
+
+
     </tr>
     <%        while (oIterador.hasNext()) {
             VotoComentarioBean oVotoComentarioBEAN = oIterador.next();
     %>
     <tr>
         <td><%=oVotoComentarioBEAN.getId()%></td>
-       <td>
+        <td>
             <%=oVotoComentarioBEAN.getId_usuario().getLogin()%> (<%=oVotoComentarioBEAN.getId_usuario().getId()%>)
             <div class="btn-group">
                 <a class="btn btn-mini" href="Controller?class=usuario&method=list&id=<%=oVotoComentarioBEAN.getId()%>&searchingfor=usuario&returnclass=votoComentario&returnmethod=update&returnphase=2"><i class="icon-search"></i></a>                                        
             </div>            
         </td>
-        
+
         <td>
             <%=oVotoComentarioBEAN.getId_comentario().getTitulo()%> (<%=oVotoComentarioBEAN.getId_comentario().getId()%>)
             <div class="btn-group">
                 <a class="btn btn-mini" href="Controller?class=coment&method=list&id=<%=oVotoComentarioBEAN.getId()%>&searchingfor=comentario&returnclass=votoComentario&returnmethod=update&returnphase=2"><i class="icon-search"></i></a>                                        
             </div>            
         </td>
-        
-        
-        
-        
+
+
+
+
         <td><%=oVotoComentarioBEAN.getValor()%></td>
-       
-          
+
+
         <td>
             <div class="btn-toolbar">
                 <div class="btn-group"> 

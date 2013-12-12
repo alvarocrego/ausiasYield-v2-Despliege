@@ -40,6 +40,7 @@
                 out.print("<p>Sin filtrar</p>");
             }
         %>
+        <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) actividadObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -154,7 +155,7 @@
         <td><%=oActividadofflineBean.getCalificacion()%></td>
         <td><%=oActividadofflineBean.getEvaluacion()%></td>
         <td><%=oActividadofflineBean.getActivo()%></td>
-       
+
         <td>
             <div class="btn-toolbar">
                 <div class="btn-group">

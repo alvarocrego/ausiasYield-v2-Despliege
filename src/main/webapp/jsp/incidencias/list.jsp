@@ -49,8 +49,9 @@
         %>
         <%
             Integer registers = (Integer) alObjetoParametro.get(2);
-            out.print("Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString());
-        %>        
+            out.print("<p>Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString() + "</p>");
+        %>
+        <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) alObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -164,7 +165,7 @@
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=feacharesolucion&ordervalue=asc"><i class="icon-arrow-up"></i></a>
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=feacharesolucion&ordervalue=desc"><i class="icon-arrow-down"></i></a>         
         </th>
-        
+
         <th>Operaciones</th>
     </tr>
     <%        while (oIterador.hasNext()) {
@@ -174,44 +175,44 @@
         <td><%=oIncidenciasBEAN.getId()%></td>
         <td><%=oIncidenciasBEAN.getResumen()%></td>
         <td><%=oIncidenciasBEAN.getCambios()%></td>
-        
-        
+
+
         <td>
             <%=oIncidenciasBEAN.getEstado().getNombre()%> (<%=oIncidenciasBEAN.getEstado().getId()%>)
             <div class="btn-group">
                 <a class="btn btn-mini" href="Controller?class=estado&method=list&id=<%=oIncidenciasBEAN.getId()%>&searchingfor=estado&returnclass=incidencias&returnmethod=update&returnphase=2"><i class="icon-search"></i></a>                                        
             </div>
         </td>
-        
-        
 
-         
-         <td>
+
+
+
+        <td>
             <%=oIncidenciasBEAN.getRepositorio().getTitulo()%> (<%=oIncidenciasBEAN.getRepositorio().getId()%>)
             <div class="btn-group">
                 <a class="btn btn-mini" href="Controller?class=repositorio&method=list&id=<%=oIncidenciasBEAN.getId()%>&searchingfor=repositorio&returnclass=incidencias&returnmethod=update&returnphase=2"><i class="icon-search"></i></a>                                        
             </div>
         </td>
-         
-       
-        
-        
+
+
+
+
         <td>
             <%=oIncidenciasBEAN.getUsuario().getId()%> (<%=oIncidenciasBEAN.getUsuario().getId()%>)
             <div class="btn-group">
                 <a class="btn btn-mini" href="Controller?class=usuario&method=list&id=<%=oIncidenciasBEAN.getId()%>&searchingfor=usuario&returnclass=incidencias&returnmethod=update&returnphase=2"><i class="icon-search"></i></a>                                        
             </div>
         </td>
-        
-        
-        
-        
+
+
+
+
         <%
             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
         %>
         <td><%=formatoFecha.format(oIncidenciasBEAN.getFechaAlta())%></td>
         <td><%=formatoFecha.format(oIncidenciasBEAN.getFechaResolucion())%></td>
-               
+
         <td>
             <div class="btn-toolbar">
                 <div class="btn-group"> 

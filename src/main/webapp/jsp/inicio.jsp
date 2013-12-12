@@ -18,7 +18,7 @@
                     Se ha estructurado siguiendo un modelo MVC que permita a los alumnos 
                     conocer un referente para diseñar en un futuro sus proyectos.
                     Su funcionalidad es similar a la de un moodle adaptado.
-                   </p>
+                </p>
             </div>    
         </div>
         <div class="row-fluid">    
@@ -49,5 +49,27 @@
             <li>Relaciones 1:M</li>
             <li>Relaciones M:M</li>
         </ul>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Alumnos que han participado en el proyecto</h3>
+        BENITO SORIA, PEDRO JOSÉ -
+        BONET CEREZUELA, JAVIER -
+        CABALLERO CARDONA, JORGE -
+        CREGO TAPIA, ÁLVARO -
+        ESLAVA BARRERA, JORGE -
+        GIMENO GILABERT, ENRIQUE -
+        GRANCHA BONORA, JOSÉ -
+        MARTÍN MOLINA, CRISTINA -
+        MARTÍN TÁRRAGA, SERGIO -
+        MEMBRILLAS BELENGUER, EDUARDO -
+        NAVARRO PERIS, ANTONIO -
+        ORTEGA ORTEGA, DIANA -
+        PÉREZ GODESART, JUAN -
+        RIQUELME ALFONSO, ANA VICTORIA -
+        RODRÍGUEZ SERRA, DANIEL -
+        SEGOVIA LEÓN, JACOBO -
+        TAMARIT MARTÍNEZ, SALVADOR 
     </div>
 </div>

@@ -41,6 +41,7 @@
                 out.print("<p>Sin filtrar</p>");
             }
         %>
+        <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) alObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -151,12 +152,12 @@
         %>
         <td><%=formatoFecha.format(oCuestionarioBEAN.getFecha())%></td>
         <td><%=oCuestionarioBEAN.getEvaluacion()%></td>
-        <td><%if(oCuestionarioBEAN.getActivo()){
-                   out.print("Sí");
-              }else{
-                   out.print("No");
-              }
-        %></td>
+        <td><%if (oCuestionarioBEAN.getActivo()) {
+                out.print("Sí");
+            } else {
+                out.print("No");
+            }
+            %></td>
 
         <td>
             <div class="btn-toolbar">

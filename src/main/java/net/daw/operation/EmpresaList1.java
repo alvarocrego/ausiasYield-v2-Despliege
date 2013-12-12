@@ -31,7 +31,7 @@ public class EmpresaList1 implements Operation{
         //Hasta aquí
 
         //Validación
-        if (tipoUsuario.equals(net.daw.helper.Enum.TipoUsuario.Empresa)) {
+        if (!tipoUsuario.equals(net.daw.helper.Enum.TipoUsuario.Alumno)) {
             oContexto.setVista("jsp/empresa/list.jsp");
             try {
                 EmpresaDao oEmpresaDao = new EmpresaDao(oContexto.getEnumTipoConexion());

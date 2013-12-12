@@ -42,8 +42,9 @@
         %>
         <%
             Integer registers = (Integer) alObjetoParametro.get(2);
-            out.print("Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString());
-        %>        
+            out.print("<p>Mostrando " + oContexto.getNrpp().toString() + " registros de un total de " + registers.toString() + "</p>");
+        %>
+        <a  class="btn" href="Controller?class=<%=oContexto.getClase()%>&method=new">Crear <%=oContexto.getClase()%></i></a>   
         <%
             ArrayList<String> paginacion = (ArrayList<String>) alObjetoParametro.get(1);
             Iterator<String> iterador2 = paginacion.listIterator();
@@ -64,7 +65,7 @@
                         <select id="filter" name="filter" width="80" style="width: 80px">
                             <option>id</option>
                             <option>nombre</option>
-                            
+
                         </select>  
                     </span>
                     <span>
@@ -131,10 +132,10 @@
         <th>Operaciones
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=ape1&ordervalue=asc"><i class="icon-arrow-up"></i></a>
             <a href="Controller?<%=oContexto.getSerializedParamsExceptOrder()%>&order=ape1&ordervalue=desc"><i class="icon-arrow-down"></i></a>
-       
+
         </th>
-        
-        
+
+
     </tr>
     <%        while (oIterador.hasNext()) {
             EstadoBean oEstadoBEAN = oIterador.next();
@@ -142,8 +143,8 @@
     <tr>
         <td><%=oEstadoBEAN.getId()%></td>
         <td><%=oEstadoBEAN.getNombre()%></td>
-       
-          
+
+
         <td>
             <div class="btn-toolbar">
                 <div class="btn-group"> 
